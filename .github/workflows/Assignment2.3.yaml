@@ -1,0 +1,24 @@
+name : Trigger Detective
+
+
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+  
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Detect Trigger
+        run: echo "This workflow was triggered by a(n) ${{ github.event_name }} event."
+      - name: Detect Push Branch
+        if: github.event_name == 'push'
+        run: echo "The push was made to the ${{ github.ref }} branch."
+      - name: Detect Pull Request Branch
+        if: github.event_name == 'pull_request'
+        run: echo "The pull request was made to the ${{ github.base_ref }} branch."
+      - name: Completed
+        run: echo "Trigger detection completed."
+        
