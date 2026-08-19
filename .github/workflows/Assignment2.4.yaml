@@ -12,8 +12,9 @@ jobs:
   watch:
     runs-on: ubuntu-latest
     steps:
-      - name: Print event name
-        run: echo "Event triggered by: ${{ github.event_name }}"
+      - name: Print event name 
+        run:  |
+          echo "Event triggered by: ${{ github.event_name }}"
       
       - name: Print current date and time
         run: |
